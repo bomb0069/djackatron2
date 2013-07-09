@@ -12,8 +12,11 @@
 		<spring.version>3.2.0.RELEASE</spring.version>
 		<slf4j.version>1.6.4</slf4j.version>
 		<joda.time.version>2.0</joda.time.version>
+<<<<<<< HEAD
 		<jackson.version>2.1.2</jackson.version>
 		<jetty.version>7.6.1.v20120215</jetty.version>
+=======
+>>>>>>> a3e5ed8... Add Joda time lib
 	</properties>
 
 	<dependencies>
@@ -41,12 +44,15 @@
 			<version>${joda.time.version}</version>
 		</dependency>
 
+<<<<<<< HEAD
 		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>
 			<artifactId>jackson-databind</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
 
+=======
+>>>>>>> a3e5ed8... Add Joda time lib
 		<!-- Log -->
 		<dependency>
 			<groupId>org.slf4j</groupId>

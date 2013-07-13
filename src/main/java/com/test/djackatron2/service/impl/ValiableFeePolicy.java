@@ -1,4 +1,6 @@
-package com.test.djackatron2.service;
+package com.test.djackatron2.service.impl;
+
+import com.test.djackatron2.service.FeePolicy;
 
 public class ValiableFeePolicy implements FeePolicy {
 

@@ -1,9 +1,12 @@
-package com.test.djackatron2.service;
+package com.test.djackatron2.service.impl;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
+
+import com.test.djackatron2.service.FeePolicy;
+import com.test.djackatron2.service.impl.ValiableFeePolicy;
 
 public class ValiableFeePolicyTest  {
 	

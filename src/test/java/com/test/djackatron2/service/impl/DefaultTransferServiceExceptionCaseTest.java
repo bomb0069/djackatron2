@@ -1,4 +1,4 @@
-package com.test.djackatron2.service;
+package com.test.djackatron2.service.impl;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -10,6 +10,9 @@ import org.junit.Test;
 import com.test.djackatron2.exception.InsufficiantFundException;
 import com.test.djackatron2.model.Account;
 import com.test.djackatron2.repository.AccountRepository;
+import com.test.djackatron2.service.FeePolicy;
+import com.test.djackatron2.service.TransferService;
+import com.test.djackatron2.service.impl.DefaultTransferService;
 
 public class DefaultTransferServiceExceptionCaseTest {
 	

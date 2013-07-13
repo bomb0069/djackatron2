@@ -1,4 +1,4 @@
-package com.test.djackatron2.service;
+package com.test.djackatron2.service.impl;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
@@ -15,6 +15,9 @@ import org.junit.runners.Parameterized.Parameters;
 
 import com.test.djackatron2.model.Account;
 import com.test.djackatron2.repository.AccountRepository;
+import com.test.djackatron2.service.FeePolicy;
+import com.test.djackatron2.service.TransferService;
+import com.test.djackatron2.service.impl.DefaultTransferService;
 
 @RunWith(value=Parameterized.class)
 public class DefaultTransferServiceNormalCaseTest {

@@ -1,8 +1,10 @@
-package com.test.djackatron2.service;
+package com.test.djackatron2.service.impl;
 
 import com.test.djackatron2.exception.InsufficiantFundException;
 import com.test.djackatron2.model.Account;
 import com.test.djackatron2.repository.AccountRepository;
+import com.test.djackatron2.service.FeePolicy;
+import com.test.djackatron2.service.TransferService;
 
 public class DefaultTransferService implements TransferService {
 	

@@ -13,4 +13,6 @@ public interface TransferService {
 
 	void setMinimumTransfer(double minimumTransfer);
 
+	void setTimeService(TimeService timeService);
+
 }

@@ -4,10 +4,13 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.verify;
 
 import java.util.Arrays;
 import java.util.Collection;
 
+import org.joda.time.LocalTime;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -16,6 +19,7 @@ import org.junit.runners.Parameterized.Parameters;
 import com.test.djackatron2.model.Account;
 import com.test.djackatron2.repository.AccountRepository;
 import com.test.djackatron2.service.FeePolicy;
+import com.test.djackatron2.service.TimeService;
 import com.test.djackatron2.service.TransferService;
 import com.test.djackatron2.service.impl.DefaultTransferService;
 
@@ -59,20 +63,24 @@ public class DefaultTransferServiceNormalCaseTest {
 		
 		AccountRepository accountRepo = mock(AccountRepository.class);
 		FeePolicy feePolicy = mock(FeePolicy.class);
+		TimeService timeService = mock(TimeService.class);
 		
 		when(feePolicy.calculateTranferRate(transferAmount)).thenReturn(transferFee);
 		when(accountRepo.getAccount(sourceAccount.getAccountNo())).thenReturn(sourceAccount);
 		when(accountRepo.getAccount(destinationAccount.getAccountNo())).thenReturn(destinationAccount);
+		when(timeService.isAvailiable(any(LocalTime.class))).thenReturn(true);
 		
 		TransferService transferService = new DefaultTransferService();
 		transferService.setAccountRepository(accountRepo);
 		transferService.setFeePolicy(feePolicy);
+		transferService.setTimeService(timeService);
 			
 		transferService.transfer(sourceAccount.getAccountNo(),destinationAccount.getAccountNo(),transferAmount);
 		
 		assertThat(destinationAccount.getBalance(),equalTo(destinationBalance));
 		assertThat(sourceAccount.getBalance(),equalTo(sourceBalance));
 		
+		verify(timeService).isAvailiable(any(LocalTime.class));
 	}
 
 }

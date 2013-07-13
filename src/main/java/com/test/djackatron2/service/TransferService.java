@@ -11,4 +11,6 @@ public interface TransferService {
 
 	void setFeePolicy(FeePolicy feePolicy);
 
+	void setMinimumTransfer(double minimumTransfer);
+
 }

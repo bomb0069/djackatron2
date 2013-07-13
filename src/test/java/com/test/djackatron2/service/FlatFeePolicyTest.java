@@ -12,13 +12,13 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 @RunWith(value=Parameterized.class)
-public class TestFlatFeePolicy {
+public class FlatFeePolicyTest {
 	
 	double fixRate;
 	double amount;
 	double transferFee;
 	
-	public TestFlatFeePolicy(double fixRate,	double amount, double transferFee ) {
+	public FlatFeePolicyTest(double fixRate,	double amount, double transferFee ) {
 		this.fixRate = fixRate;
 		this.amount = amount;
 		this.transferFee = transferFee;

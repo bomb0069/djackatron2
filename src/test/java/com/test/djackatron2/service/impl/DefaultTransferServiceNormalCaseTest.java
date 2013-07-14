@@ -66,8 +66,8 @@ public class DefaultTransferServiceNormalCaseTest {
 		TimeService timeService = mock(TimeService.class);
 		
 		when(feePolicy.calculateTranferRate(transferAmount)).thenReturn(transferFee);
-		when(accountRepo.getAccount(sourceAccount.getAccountNo())).thenReturn(sourceAccount);
-		when(accountRepo.getAccount(destinationAccount.getAccountNo())).thenReturn(destinationAccount);
+		when(accountRepo.getAccount(sourceAccount.getId())).thenReturn(sourceAccount);
+		when(accountRepo.getAccount(destinationAccount.getId())).thenReturn(destinationAccount);
 		when(timeService.isAvailiable(any(LocalTime.class))).thenReturn(true);
 		
 		TransferService transferService = new DefaultTransferService();
@@ -75,7 +75,7 @@ public class DefaultTransferServiceNormalCaseTest {
 		transferService.setFeePolicy(feePolicy);
 		transferService.setTimeService(timeService);
 			
-		transferService.transfer(sourceAccount.getAccountNo(),destinationAccount.getAccountNo(),transferAmount);
+		transferService.transfer(sourceAccount.getId(),destinationAccount.getId(),transferAmount);
 		
 		assertThat(destinationAccount.getBalance(),equalTo(destinationBalance));
 		assertThat(sourceAccount.getBalance(),equalTo(sourceBalance));

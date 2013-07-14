@@ -36,8 +36,8 @@ public class DefaultTransferServiceExceptionCaseTest {
 		timeService = mock(TimeService.class);
 		
 		when(feePolicy.calculateTranferRate(anyDouble())).thenReturn(transferFee);
-		when(accountRepo.getAccount(sourceAccount.getAccountNo())).thenReturn(sourceAccount);
-		when(accountRepo.getAccount(destinationAccount.getAccountNo())).thenReturn(destinationAccount);
+		when(accountRepo.getAccount(sourceAccount.getId())).thenReturn(sourceAccount);
+		when(accountRepo.getAccount(destinationAccount.getId())).thenReturn(destinationAccount);
 		when(timeService.isAvailiable(any(LocalTime.class))).thenReturn(true);
 		
 		transferService = new DefaultTransferService();
@@ -51,7 +51,7 @@ public class DefaultTransferServiceExceptionCaseTest {
 	public void testTransferInsufficientFund() {
 		double transferAmount = 50;
 
-		transferService.transfer(sourceAccount.getAccountNo(),destinationAccount.getAccountNo(),transferAmount);
+		transferService.transfer(sourceAccount.getId(),destinationAccount.getId(),transferAmount);
 		
 	}
 
@@ -59,7 +59,7 @@ public class DefaultTransferServiceExceptionCaseTest {
 	public void testExceptionWhenZeroTransfer() {
 		double transferAmount = 0;
 
-		transferService.transfer(sourceAccount.getAccountNo(),destinationAccount.getAccountNo(),transferAmount);
+		transferService.transfer(sourceAccount.getId(),destinationAccount.getId(),transferAmount);
 		
 	}
 
@@ -68,7 +68,7 @@ public class DefaultTransferServiceExceptionCaseTest {
 	public void testExceptionWhenNegativeTransfer() {
 		double transferAmount = -5;
 
-		transferService.transfer(sourceAccount.getAccountNo(),destinationAccount.getAccountNo(),transferAmount);
+		transferService.transfer(sourceAccount.getId(),destinationAccount.getId(),transferAmount);
 		
 	}
 
@@ -77,7 +77,7 @@ public class DefaultTransferServiceExceptionCaseTest {
 		double transferAmount = 20;
 		transferService.setMinimumTransfer(50);
 
-		transferService.transfer(sourceAccount.getAccountNo(),destinationAccount.getAccountNo(),transferAmount);
+		transferService.transfer(sourceAccount.getId(),destinationAccount.getId(),transferAmount);
 		
 	}
 
@@ -87,7 +87,7 @@ public class DefaultTransferServiceExceptionCaseTest {
 		
 		when(timeService.isAvailiable(any(LocalTime.class))).thenReturn(false);
 
-		transferService.transfer(sourceAccount.getAccountNo(),destinationAccount.getAccountNo(),transferAmount);
+		transferService.transfer(sourceAccount.getId(),destinationAccount.getId(),transferAmount);
 		
 	}
 }
